@@ -1,0 +1,112 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/psycho-core",
+    "crates/psycho-csi",
+    "crates/psycho-densepose",
+    "crates/psycho-lma",
+    "crates/psycho-privacy",
+    "crates/psycho-agents",
+    "crates/psycho-api",
+    "crates/psycho-frontend",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+authors = ["Psycho-DensePose Team"]
+license = "MIT"
+repository = "https://github.com/cadieuxj/Psycho-DensePose"
+
+[workspace.dependencies]
+# Async runtime
+tokio = { version = "1.43", features = ["full"] }
+tokio-stream = "0.1"
+
+# Web framework (Axum with HTTP/3 support)
+axum = { version = "0.8", features = ["macros", "ws"] }
+axum-extra = { version = "0.10", features = ["typed-header"] }
+tower = "0.5"
+tower-http = { version = "0.6", features = ["cors", "trace", "compression-gzip"] }
+hyper = { version = "1.6", features = ["full"] }
+
+# WebTransport / QUIC
+quinn = "0.11"
+rustls = { version = "0.23", features = ["ring"] }
+wtransport = "0.5"
+
+# Serialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+bincode = "1.3"
+rmp-serde = "1.3"
+
+# Database (QuestDB)
+questdb-rs = "4.0"
+sqlx = { version = "0.8", features = ["runtime-tokio", "postgres", "chrono", "uuid"] }
+
+# Numeric / Scientific computing
+ndarray = { version = "0.16", features = ["rayon", "serde"] }
+ndarray-linalg = { version = "0.17", features = ["openblas-system"] }
+num-complex = { version = "0.4", features = ["serde"] }
+num-traits = "0.2"
+nalgebra = { version = "0.33", features = ["serde-serialize"] }
+rustfft = "6.2"
+realfft = "3.4"
+
+# Machine Learning
+candle-core = "0.8"
+candle-nn = "0.8"
+candle-transformers = "0.8"
+tch = "0.18"
+
+# LLM / Agents
+langchain-rust = "4.6"
+llm = "0.2"
+
+# Signal processing
+dsp = "0.3"
+biquad = "0.4"
+
+# Statistics
+statrs = "0.18"
+argmin = "0.10"
+
+# Utilities
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter", "json"] }
+thiserror = "2.0"
+anyhow = "1.0"
+chrono = { version = "0.4", features = ["serde"] }
+uuid = { version = "1.11", features = ["v4", "serde"] }
+rand = "0.8"
+rayon = "1.10"
+parking_lot = "0.12"
+dashmap = "6.1"
+once_cell = "1.20"
+bytes = "1.9"
+futures = "0.3"
+async-trait = "0.1"
+
+# Configuration
+config = "0.14"
+dotenvy = "0.15"
+
+# Testing
+criterion = "0.5"
+proptest = "1.5"
+mockall = "0.13"
+
+[profile.release]
+opt-level = 3
+lto = "fat"
+codegen-units = 1
+panic = "abort"
+strip = true
+
+[profile.dev]
+opt-level = 1
+
+[profile.bench]
+inherits = "release"
+debug = true

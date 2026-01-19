@@ -1,0 +1,46 @@
+[package]
+name = "psycho-csi"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+description = "Channel State Information (CSI) processing and sanitization for WiFi sensing"
+
+[dependencies]
+psycho-core = { path = "../psycho-core" }
+
+# Async
+tokio = { workspace = true }
+tokio-stream = { workspace = true }
+futures = { workspace = true }
+async-trait = { workspace = true }
+
+# Serialization
+serde = { workspace = true }
+serde_json = { workspace = true }
+bincode = { workspace = true }
+
+# Numeric / DSP
+num-complex = { workspace = true }
+ndarray = { workspace = true }
+rustfft = { workspace = true }
+realfft = { workspace = true }
+nalgebra = { workspace = true }
+statrs = { workspace = true }
+
+# Utilities
+tracing = { workspace = true }
+thiserror = { workspace = true }
+chrono = { workspace = true }
+bytes = { workspace = true }
+parking_lot = { workspace = true }
+rayon = { workspace = true }
+
+[dev-dependencies]
+criterion = { workspace = true }
+proptest = { workspace = true }
+rand = { workspace = true }
+
+[[bench]]
+name = "csi_processing"
+harness = false

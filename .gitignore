@@ -1,0 +1,50 @@
+# Rust
+/target/
+**/*.rs.bk
+Cargo.lock
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Logs
+logs/
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Model weights
+models/*.bin
+models/*.onnx
+models/*.safetensors
+!models/.gitkeep
+
+# Data
+data/raw/
+data/processed/
+!data/.gitkeep
+
+# Build artifacts
+dist/
+pkg/
+*.wasm
+*.d.ts
+
+# Certificates
+certs/*.pem
+certs/*.key
+!certs/.gitkeep
+
+# Coverage
+coverage/
+*.lcov

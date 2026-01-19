@@ -1,0 +1,33 @@
+[package]
+name = "psycho-lma"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+description = "Laban Movement Analysis for psychometric profiling from motion data"
+
+[dependencies]
+psycho-core = { path = "../psycho-core" }
+
+# Async
+tokio = { workspace = true }
+futures = { workspace = true }
+
+# Serialization
+serde = { workspace = true }
+serde_json = { workspace = true }
+
+# Numeric
+ndarray = { workspace = true }
+nalgebra = { workspace = true }
+statrs = { workspace = true }
+
+# Utilities
+tracing = { workspace = true }
+thiserror = { workspace = true }
+chrono = { workspace = true }
+rayon = { workspace = true }
+
+[dev-dependencies]
+rand = { workspace = true }
+proptest = { workspace = true }
