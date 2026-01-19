@@ -1,0 +1,33 @@
+[package]
+name = "psycho-privacy"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+description = "Privacy-preserving tracking and spatio-temporal handshake for subject identification"
+
+[dependencies]
+psycho-core = { path = "../psycho-core" }
+
+# Async
+tokio = { workspace = true }
+futures = { workspace = true }
+
+# Serialization
+serde = { workspace = true }
+serde_json = { workspace = true }
+
+# Numeric
+nalgebra = { workspace = true }
+statrs = { workspace = true }
+
+# Utilities
+tracing = { workspace = true }
+thiserror = { workspace = true }
+chrono = { workspace = true }
+uuid = { workspace = true }
+parking_lot = { workspace = true }
+dashmap = { workspace = true }
+
+[dev-dependencies]
+rand = { workspace = true }

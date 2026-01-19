@@ -1,0 +1,33 @@
+[package]
+name = "psycho-agents"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+description = "Multi-agent generative sales intelligence system"
+
+[dependencies]
+psycho-core = { path = "../psycho-core" }
+psycho-lma = { path = "../psycho-lma" }
+
+# Async
+tokio = { workspace = true }
+futures = { workspace = true }
+async-trait = { workspace = true }
+
+# Serialization
+serde = { workspace = true }
+serde_json = { workspace = true }
+
+# LLM / Agents
+langchain-rust = { workspace = true }
+
+# Utilities
+tracing = { workspace = true }
+thiserror = { workspace = true }
+chrono = { workspace = true }
+uuid = { workspace = true }
+parking_lot = { workspace = true }
+
+[dev-dependencies]
+tokio-test = "0.4"

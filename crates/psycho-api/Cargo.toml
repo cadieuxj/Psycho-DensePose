@@ -1,0 +1,54 @@
+[package]
+name = "psycho-api"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+description = "WebTransport API server with Axum for real-time communication"
+
+[dependencies]
+psycho-core = { path = "../psycho-core" }
+psycho-csi = { path = "../psycho-csi" }
+psycho-densepose = { path = "../psycho-densepose" }
+psycho-lma = { path = "../psycho-lma" }
+psycho-privacy = { path = "../psycho-privacy" }
+psycho-agents = { path = "../psycho-agents" }
+
+# Web framework
+axum = { workspace = true }
+axum-extra = { workspace = true }
+tower = { workspace = true }
+tower-http = { workspace = true }
+hyper = { workspace = true }
+
+# WebTransport / QUIC
+wtransport = { workspace = true }
+quinn = { workspace = true }
+rustls = { workspace = true }
+
+# Async
+tokio = { workspace = true }
+tokio-stream = { workspace = true }
+futures = { workspace = true }
+async-trait = { workspace = true }
+
+# Serialization
+serde = { workspace = true }
+serde_json = { workspace = true }
+
+# Database
+questdb-rs = { workspace = true }
+
+# Utilities
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
+thiserror = { workspace = true }
+chrono = { workspace = true }
+uuid = { workspace = true }
+bytes = { workspace = true }
+dashmap = { workspace = true }
+config = { workspace = true }
+dotenvy = { workspace = true }
+
+[dev-dependencies]
+tower = { workspace = true, features = ["util"] }

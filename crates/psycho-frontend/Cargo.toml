@@ -1,0 +1,71 @@
+[package]
+name = "psycho-frontend"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+description = "Leptos frontend with WebGPU visualization for Psycho-DensePose"
+
+[dependencies]
+psycho-core = { path = "../psycho-core" }
+
+# Leptos
+leptos = { version = "0.6", features = ["csr", "nightly"] }
+leptos_meta = { version = "0.6", features = ["csr"] }
+leptos_router = { version = "0.6", features = ["csr"] }
+
+# WebGPU
+wgpu = { version = "0.19", features = ["webgpu"] }
+wgpu-core = "0.19"
+
+# Rendering
+bytemuck = { version = "1.14", features = ["derive"] }
+glam = "0.27"
+
+# WebTransport client
+web-sys = { version = "0.3", features = [
+    "Window",
+    "Document",
+    "Element",
+    "HtmlCanvasElement",
+    "WebGpu",
+    "Gpu",
+    "GpuAdapter",
+    "GpuDevice",
+    "GpuQueue",
+    "GpuBuffer",
+    "GpuRenderPipeline",
+    "GpuComputePipeline",
+    "GpuShaderModule",
+    "GpuBindGroupLayout",
+    "GpuBindGroup",
+    "GpuCommandEncoder",
+    "GpuRenderPassDescriptor",
+    "GpuComputePassDescriptor",
+] }
+wasm-bindgen = "0.2"
+wasm-bindgen-futures = "0.4"
+js-sys = "0.3"
+
+# Serialization
+serde = { workspace = true }
+serde_json = { workspace = true }
+serde-wasm-bindgen = "0.6"
+
+# WebSocket (fallback for WebTransport)
+gloo-net = { version = "0.5", features = ["websocket"] }
+gloo-timers = "0.3"
+
+# Utilities
+tracing = { workspace = true }
+tracing-wasm = "0.2"
+console_error_panic_hook = "0.1"
+thiserror = { workspace = true }
+futures = { workspace = true }
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[package.metadata.trunk]
+dist = "dist"
+public-url = "/"
